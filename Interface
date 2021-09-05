@@ -1,0 +1,26 @@
+#PySimpleGUI test
+
+from PySimpleGUI import PySimpleGUI as sg
+
+# LAYOUT
+sg.theme("LightGrey")
+
+
+estilo = [
+    [sg.Text("Usuário"),sg.Input(key='usuario',size=(20,1))],
+    [sg.Text("Senha"),sg.Input(key='senha',password_char='*',size=(20,1))],
+    [sg.Checkbox("Logar automaticamente?")],
+    [sg.Button("Entrar")]
+]
+# JANELA
+interface = sg.Window("Tela de login", estilo)
+
+# LER OS EVENTOS
+while True:
+    eventos, valores = interface.read()
+    if eventos == sg.WINDOW_CLOSED:
+        break
+    if eventos =="Entrar":
+        if valores["usuario"] == "nickolas" and valores["senha"] == "unigloves":
+            print("Bem vindo a UniGloves!")
+
